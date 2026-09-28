@@ -1,0 +1,46 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title My Shop
+
+    style.
+      .card__image img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+  body
+    header.main-header
+      nav.main-header__nav
+        ul.main-header__item-list
+          li.main-header__item
+            a.active(href="/") Shop
+          li.main-header__item
+            a.active(href="/admin/add-product") Add Product
+
+    main
+      if prods.length === 0
+        h1 No products found!
+      else
+        .grid
+          each product in prods
+            article.card.product-item
+              header.card__header
+                h1.card__title #{product.title}
+
+              div.card__image
+                img(
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLL0vSvJExLz5L94fvXam5V-z8OeFvZrPWjT1sYDVGdw&s=10"
+                  alt="Product"
+                )
+
+              div.card__content
+                h2.card__price $19.99 
+                p.card__description This is a great product that you will love!
+
+              .card_actions
+                button.btn Add to Cart
+
+            hr
